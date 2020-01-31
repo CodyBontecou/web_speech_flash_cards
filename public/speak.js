@@ -74,14 +74,6 @@ inputForm.onsubmit = function(event) {
     inputTxt.blur();
 }
 
-pitch.onchange = function() {
-    pitchValue.textContent = pitch.value;
-}
-
-rate.onchange = function() {
-    rateValue.textContent = rate.value;
-}
-
 voiceSelect.onchange = function(){
     speak();
 }
