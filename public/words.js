@@ -50,8 +50,13 @@ window.onload = function () {
                 snd.play();
             }
 
+            function incorrect_beep() {
+            }
+
             if (words.includes(word)) {
                 setTimeout(beep, 500)
+            } else {
+
             }
         }
 
