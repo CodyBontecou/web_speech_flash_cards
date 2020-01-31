@@ -30,11 +30,12 @@ function beginSpeechRecognition() {
     recognition.start();
 
     var answers = ['water', 'yes', 'no'];
+    const answer = answers[0];
     const initial_word = document.querySelector('.initial_word');
-    initial_word.innerHTML = answers[0];
+    initial_word.innerHTML = answer;
 
-    if (english_words[0] !== '') {
-        speak(english_words[0])
+    if (answer !== '') {
+        speak(answer)
     }
 
     recognition.onresult = function (event) {
