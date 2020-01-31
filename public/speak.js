@@ -27,15 +27,17 @@ function populateVoiceList() {
     voiceSelect.selectedIndex = selectedIndex;
 }
 
-populateVoiceList();
 if (speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = populateVoiceList;
 }
 
-function speak(word) {
+
+
+function speak(word, recognition) {
     var utterThis = new SpeechSynthesisUtterance(word);
     utterThis.onend = function (event) {
         console.log('SpeechSynthesisUtterance.onend');
+        recognition.start(); // I don't think recognition and speak should be intertwined like this.
     }
     utterThis.onerror = function (event) {
         console.error('SpeechSynthesisUtterance.onerror');

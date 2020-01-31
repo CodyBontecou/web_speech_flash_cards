@@ -30,13 +30,12 @@ function beginSpeechRecognition() {
     initial_word.innerHTML = answer;
 
     if (answer !== '') {
-        console.log('here')
-        speak(answer)
+        speak(answer, recognition)
     }
 
     const diagnostic = document.querySelector('.answer');
 
-    recognition.start();
+    // recognition.start();
     recognition.onresult = function (event) {
 
         const last = event.results.length - 1;
@@ -61,8 +60,11 @@ function beginSpeechRecognition() {
     recognition.onspeechend = function () {
         recognition.stop();
     }
+    recognition.onend = function () {
+        diagnostic.textContent = "I didn't quite catch that.";
+    }
 
-    recognition.onnomatch = function (event) {
+    recognition.onnomatch = function () {
         diagnostic.textContent = "I didn't recognise that color.";
     }
 
@@ -75,6 +77,7 @@ window.onload = function () {
     if (!(window.webkitSpeechRecognition) && !(window.speechRecognition)) {
         upgrade();
     } else {
+        populateVoiceList();
         const button = document.getElementById('begin');
         button.addEventListener("click", beginSpeechRecognition);
     }
