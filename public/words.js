@@ -3,38 +3,33 @@ var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
 var words = ['agua', 'sí', 'nada'];
-var grammar = '#JSGF V1.0; grammar colors; public <word> = ' + words.join(' | ') + ' ;'
+const english_words = ['water', 'yes', 'no'];
+var grammar = '#JSGF V1.0; grammar colors; public <word> = ' + words.join(' | ') + ' ;';
 
 var recognition = new SpeechRecognition();
 var speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
 recognition.grammars = speechRecognitionList;
-//recognition.continuous = false;
+// recognition.continuous = true;
 recognition.lang = 'es-MX';
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
-var diagnostic = document.querySelector('.output');
+const initial_word = document.querySelector('.initial_word');
+const diagnostic = document.querySelector('.answer');
 
 document.body.onclick = function () {
     recognition.start();
+    initial_word.innerHTML = english_words[0];
     console.log('Ready to receive a color command.');
 }
 
 recognition.onresult = function (event) {
-    // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
-    // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
-    // It has a getter so it can be accessed like an array
-    // The [last] returns the SpeechRecognitionResult at the last position.
-    // Each SpeechRecognitionResult object contains SpeechRecognitionAlternative objects that contain individual results.
-    // These also have getters so they can be accessed like arrays.
-    // The [0] returns the SpeechRecognitionAlternative at position 0.
-    // We then return the transcript property of the SpeechRecognitionAlternative object
 
-    var last = event.results.length - 1;
-    var word = event.results[last][0].transcript.toLowerCase();
+    const last = event.results.length - 1;
+    const word = event.results[last][0].transcript.toLowerCase();
 
-    diagnostic.textContent = 'Result received: ' + word + '.';
+    diagnostic.textContent = word;
     console.log('Confidence: ' + event.results[0][0].confidence);
 
     function beep() {
