@@ -7,6 +7,8 @@ function upgrade() {
     alert('Google Chrome is required');
 }
 
+var count = 0;
+
 function beginSpeechRecognition() {
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
     var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
@@ -14,6 +16,7 @@ function beginSpeechRecognition() {
 
     var words = ['agua', 'sí', 'nada'];
     var grammar = '#JSGF V1.0; grammar colors; public <word> = ' + words.join(' | ') + ' ;';
+
 
     var recognition = new SpeechRecognition();
     var speechRecognitionList = new SpeechGrammarList();
@@ -24,26 +27,36 @@ function beginSpeechRecognition() {
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
-    var answers = ['water', 'yes', 'no'];
-    const answer = answers[0];
+    var words_2 = [
+        {english: 'water', spanish: 'agua'},
+        {english: 'yes', spanish: 'sí'},
+        {english: 'nothing', spanish: 'nada'}
+    ];
+
+    if (count >= words_2.length - 1) {
+        count = 0
+    } else {
+        count += 1;
+    }
+
+    const answer = words_2[count].english
+    speak(answer, recognition)
+
+
     const initial_word = document.querySelector('.initial_word');
     initial_word.innerHTML = answer;
 
-    if (answer !== '') {
-        speak(answer, recognition)
-    }
 
     const diagnostic = document.querySelector('.answer');
 
     // recognition.start();
     recognition.onresult = function (event) {
-
         const last = event.results.length - 1;
         const word = event.results[last][0].transcript.toLowerCase();
 
         diagnostic.textContent = word;
 
-        // console.log('Confidence: ' + event.results[0][0].confidence);
+        setTimeout(beep, 500);
 
         function beep() {
             if (words.includes(word)) {
@@ -53,8 +66,6 @@ function beginSpeechRecognition() {
             }
             sound.play();
         }
-
-        setTimeout(beep, 500);
     }
 
     recognition.onspeechend = function () {
