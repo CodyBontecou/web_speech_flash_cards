@@ -26,12 +26,11 @@ function populateVoiceList() {
     }
     voiceSelect.selectedIndex = selectedIndex;
 }
+populateVoiceList();
 
 if (speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = populateVoiceList;
 }
-
-
 
 function speak(word, recognition) {
     var utterThis = new SpeechSynthesisUtterance(word);

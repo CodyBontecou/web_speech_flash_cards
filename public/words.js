@@ -60,12 +60,9 @@ function beginSpeechRecognition() {
     recognition.onspeechend = function () {
         recognition.stop();
     }
-    recognition.onend = function () {
-        diagnostic.textContent = "I didn't quite catch that.";
-    }
 
     recognition.onnomatch = function () {
-        diagnostic.textContent = "I didn't recognise that color.";
+        diagnostic.textContent = "I didn't quite catch that.";
     }
 
     recognition.onerror = function (event) {
@@ -77,7 +74,6 @@ window.onload = function () {
     if (!(window.webkitSpeechRecognition) && !(window.speechRecognition)) {
         upgrade();
     } else {
-        populateVoiceList();
         const button = document.getElementById('begin');
         button.addEventListener("click", beginSpeechRecognition);
     }
