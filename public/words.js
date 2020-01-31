@@ -22,7 +22,6 @@ function beginSpeechRecognition() {
     ];
     var grammar = '#JSGF V1.0; grammar colors; public <word> = ' + words.join(' | ') + ' ;';
 
-
     var recognition = new SpeechRecognition();
     var speechRecognitionList = new SpeechGrammarList();
     speechRecognitionList.addFromString(grammar, 1);
@@ -31,8 +30,6 @@ function beginSpeechRecognition() {
     recognition.lang = 'es-MX';
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
-
-
 
     if (count >= words.length - 1) {
         count = 0
@@ -46,13 +43,9 @@ function beginSpeechRecognition() {
     const initial_word = document.querySelector('.initial_word');
     initial_word.innerHTML = answer;
 
-
-
-    // recognition.start();
     recognition.onresult = function (event) {
         const last = event.results.length - 1;
         const word = event.results[last][0].transcript.toLowerCase();
-
 
         diagnostic.textContent = word;
 
