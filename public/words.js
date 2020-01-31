@@ -1,7 +1,10 @@
 function upgrade() {
+    const button = document.getElementById('begin');
+    button.hidden = true;
+
     const title = document.getElementById('title');
-    title.innerHTML = "Google Chrome required. Sorry, I don't make the rules.";
-    alert('Google Chrome is Required');
+    title.innerHTML = "<a href='https://www.google.com/chrome/' style='text-decoration: underline;'>Google Chrome</a> required. Sorry, I don't make the rules.";
+    alert('Google Chrome is required');
 }
 
 window.onload = function () {
@@ -48,7 +51,7 @@ window.onload = function () {
             }
 
             if (words.includes(word)) {
-                beep();
+                setTimeout(beep, 500)
             }
         }
 
