@@ -8,16 +8,16 @@ window.onload = function () {
     if (!(window.webkitSpeechRecognition) && !(window.speechRecognition)) {
         upgrade();
     } else {
-        const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
-        const SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
-        const SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+        var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
+        var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-        const words = ['agua', 'sí', 'nada'];
-        const english_words = ['water', 'yes', 'no'];
-        const grammar = '#JSGF V1.0; grammar colors; public <word> = ' + words.join(' | ') + ' ;';
+        var words = ['agua', 'sí', 'nada'];
+        var english_words = ['water', 'yes', 'no'];
+        var grammar = '#JSGF V1.0; grammar colors; public <word> = ' + words.join(' | ') + ' ;';
 
-        const recognition = new SpeechRecognition();
-        const speechRecognitionList = new SpeechGrammarList();
+        var recognition = new SpeechRecognition();
+        var speechRecognitionList = new SpeechGrammarList();
         speechRecognitionList.addFromString(grammar, 1);
         recognition.grammars = speechRecognitionList;
 // recognition.continuous = true;
