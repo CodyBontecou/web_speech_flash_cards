@@ -32,9 +32,6 @@ if (speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = populateVoiceList;
 }
 
-voiceSelect.onchange = function(){
-}
-
 function speak(word) {
     var utterThis = new SpeechSynthesisUtterance(word);
     utterThis.onend = function (event) {
