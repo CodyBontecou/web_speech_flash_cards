@@ -34,6 +34,27 @@ window.onload = function () {
         document.body.onclick = function () {
             recognition.start();
             initial_word.innerHTML = english_words[0];
+
+            if (english_words[0] !== '') {
+                var utterThis = new SpeechSynthesisUtterance(english_words[0]);
+                utterThis.onend = function (event) {
+                    console.log('SpeechSynthesisUtterance.onend');
+                }
+                utterThis.onerror = function (event) {
+                    console.error('SpeechSynthesisUtterance.onerror');
+                }
+                var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
+                for(i = 0; i < voices.length ; i++) {
+                    if(voices[i].name === selectedOption) {
+                        utterThis.voice = voices[i];
+                        break;
+                    }
+                }
+                utterThis.pitch = pitch.value;
+                utterThis.rate = rate.value;
+                synth.speak(utterThis);
+            }
+
         }
 
         recognition.onresult = function (event) {
