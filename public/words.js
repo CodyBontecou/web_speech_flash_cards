@@ -1,6 +1,6 @@
 function upgrade() {
     const title = document.getElementById('title');
-    title.innerHTML = "Google Chrome required. \n Sorry. I don't make the rules.";
+    title.innerHTML = "Google Chrome required. Sorry, I don't make the rules.";
     alert('Google Chrome is Required');
 }
 
