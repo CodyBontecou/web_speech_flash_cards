@@ -13,7 +13,6 @@ function beginSpeechRecognition() {
     var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
     var words = ['agua', 'sí', 'nada'];
-    var english_words = ['water', 'yes', 'no'];
     var grammar = '#JSGF V1.0; grammar colors; public <word> = ' + words.join(' | ') + ' ;';
 
     var recognition = new SpeechRecognition();
@@ -25,11 +24,14 @@ function beginSpeechRecognition() {
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
-    const initial_word = document.querySelector('.initial_word');
+
     const diagnostic = document.querySelector('.answer');
 
     recognition.start();
-    initial_word.innerHTML = english_words[0];
+
+    var answers = ['water', 'yes', 'no'];
+    const initial_word = document.querySelector('.initial_word');
+    initial_word.innerHTML = answers[0];
 
     if (english_words[0] !== '') {
         speak(english_words[0])
