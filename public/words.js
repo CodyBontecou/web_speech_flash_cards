@@ -62,3 +62,4 @@ window.onload = function () {
             diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
         }
     }
+}
