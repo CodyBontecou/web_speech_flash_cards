@@ -1,6 +1,6 @@
 function upgrade() {
     const title = document.getElementById('title');
-    title.innerHTML = "Sorry. I don't make the rules.";
+    title.innerHTML = "Google Chrome required. \n Sorry. I don't make the rules.";
     alert('Google Chrome is Required');
 }
 
@@ -8,16 +8,16 @@ window.onload = function () {
     if (!(window.webkitSpeechRecognition) && !(window.speechRecognition)) {
         upgrade();
     } else {
-        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
-        var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
-        var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+        const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+        const SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
+        const SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-        var words = ['agua', 'sí', 'nada'];
+        const words = ['agua', 'sí', 'nada'];
         const english_words = ['water', 'yes', 'no'];
-        var grammar = '#JSGF V1.0; grammar colors; public <word> = ' + words.join(' | ') + ' ;';
+        const grammar = '#JSGF V1.0; grammar colors; public <word> = ' + words.join(' | ') + ' ;';
 
-        var recognition = new SpeechRecognition();
-        var speechRecognitionList = new SpeechGrammarList();
+        const recognition = new SpeechRecognition();
+        const speechRecognitionList = new SpeechGrammarList();
         speechRecognitionList.addFromString(grammar, 1);
         recognition.grammars = speechRecognitionList;
 // recognition.continuous = true;
