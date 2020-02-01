@@ -39,6 +39,7 @@ function beginSpeechRecognition() {
 
     const answer = words[count].english;
     speak(answer, recognition);
+    diagnostic.textContent = '';
 
     const initial_word = document.querySelector('.initial_word');
     initial_word.innerHTML = answer;
