@@ -12,19 +12,19 @@ function titleForNonChromeUsers() {
     title.innerHTML = "<a href='https://www.google.com/chrome/' style='text-decoration: underline;'>Google Chrome</a> required. Sorry, I don't make the rules.";
 }
 
-var count = 0;
+let count = 0;
 
 function beginSpeechRecognition() {
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
     const diagnostic = document.querySelector('.answer');
 
-    var words = [
+    const words = [
         {english: 'water', spanish: 'agua'},
         {english: 'yes', spanish: 'sí'},
         {english: 'nothing', spanish: 'nada'}
     ];
 
-    var recognition = new SpeechRecognition();
+    let recognition = new SpeechRecognition();
     recognition.lang = 'es-MX';
 
     if (count >= words.length - 1) {
