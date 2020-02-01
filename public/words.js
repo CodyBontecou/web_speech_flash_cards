@@ -11,8 +11,6 @@ var count = 0;
 
 function beginSpeechRecognition() {
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
-    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
-    var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
     const diagnostic = document.querySelector('.answer');
 
     var words = [
@@ -20,13 +18,8 @@ function beginSpeechRecognition() {
         {english: 'yes', spanish: 'sí'},
         {english: 'nothing', spanish: 'nada'}
     ];
-    var grammar = '#JSGF V1.0; grammar colors; public <word> = ' + words.join(' | ') + ' ;';
 
     var recognition = new SpeechRecognition();
-    var speechRecognitionList = new SpeechGrammarList();
-    speechRecognitionList.addFromString(grammar, 1);
-    recognition.grammars = speechRecognitionList;
-    // recognition.continuous = true;
     recognition.lang = 'es-MX';
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
