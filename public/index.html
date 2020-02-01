@@ -11,29 +11,31 @@
     <link rel="stylesheet" href="/build/tailwind.css">
 </head>
 
-<body>
+<body class="bg-blue-700">
 
-<div class="container h-screen mx-auto bg-blue-700 text-center text-white">
-    <h1 id="title" class="text-4xl">Voice Flash Cards</h1>
-    <div class="">
+<div class="p-8 py-12 max-w-md mx-auto sm:max-w-xl">
+    <h1 id="title" class="text-4xl mb-8 text-white text-center">Voice Flash Cards</h1>
+    <div class="h-12 text-center">
         <a href="#"
            id="begin"
-           class="px-3 py-2 my-24 text-sm rounded-lg shadow-lg bg-indigo-500 text-white uppercase tracking-wider font-semibold">
+           class="px-3 py-2 text-sm rounded-lg shadow-lg bg-indigo-500 text-white uppercase tracking-wider font-semibold">
             click to begin
         </a>
     </div>
-    <div class="flex">
+    <div class="h-12 text-center flex">
         <div class="w-1/2">
-            <p class="initial_word"></p>
+            <p class="initial_word text-white"></p>
         </div>
         <div class="w-1/2">
-            <p class="answer"></p>
+            <p class="answer text-white"></p>
         </div>
     </div>
-    <form class="my-10 bg-gray-100 text-black">
-        <select id="accent_selector">
-        </select>
-    </form>
+    <div class="h-12 text-center">
+        <form class="my-10">
+            <select id="accent_selector" class="shadow-lg text-black">
+            </select>
+        </form>
+    </div>
 </div>
 
 <script src="words.js"></script>
