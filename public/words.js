@@ -1,10 +1,15 @@
-function upgrade() {
+function upgradeAlert() {
+    alert('Google Chrome is required');
+}
+
+function hideButton() {
     const button = document.getElementById('begin');
     button.hidden = true;
+}
 
+function titleForNonChromeUsers() {
     const title = document.getElementById('title');
     title.innerHTML = "<a href='https://www.google.com/chrome/' style='text-decoration: underline;'>Google Chrome</a> required. Sorry, I don't make the rules.";
-    alert('Google Chrome is required');
 }
 
 var count = 0;
@@ -70,7 +75,9 @@ function beginSpeechRecognition() {
 
 window.onload = function () {
     if (!(window.webkitSpeechRecognition) && !(window.speechRecognition)) {
-        upgrade();
+        upgradeAlert();
+        hideButton();
+        titleForNonChromeUsers();
     } else {
         const button = document.getElementById('begin');
         button.addEventListener("click", beginSpeechRecognition);
