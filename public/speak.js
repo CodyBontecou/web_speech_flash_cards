@@ -1,5 +1,4 @@
 var synth = window.speechSynthesis;
-
 var voiceSelect = document.querySelector('select');
 var voices = [];
 
