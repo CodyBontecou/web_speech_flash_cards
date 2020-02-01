@@ -37,11 +37,11 @@ function beginSpeechRecognition() {
     handleIteration();
 
     const answer = words[iteration].english;
-    speak(answer, recognition);
-    diagnostic.textContent = '';
-
     const initial_word = document.querySelector('.initial_word');
     initial_word.innerHTML = answer;
+    speak(answer, recognition);
+
+    diagnostic.textContent = ''; // to reset text when new word comes.
 
     recognition.onresult = function (event) {
         const last = event.results.length - 1;
