@@ -1,4 +1,4 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/*! normalize.stylesheets v8.0.1 | MIT License | github.com/necolas/normalize.stylesheets */
 
 /* Document
    ========================================================================== */
@@ -351,7 +351,7 @@ template {
 
 /**
  * Manually forked from SUIT CSS Base: https://github.com/suitcss/base
- * A thin layer on top of normalize.css that provides a starting point more
+ * A thin layer on top of normalize.stylesheets that provides a starting point more
  * suitable for web applications.
  */
 
@@ -539,7 +539,7 @@ a {
  * style explicitly so you don't inadvertently introduce
  * styles that deviate from your design system. These styles
  * supplement a partial reset that is already applied by
- * normalize.css.
+ * normalize.stylesheets.
  */
 
 button,
