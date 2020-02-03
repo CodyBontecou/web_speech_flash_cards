@@ -4,7 +4,8 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "build": "postcss css/tailwind.css -o public/build/tailwind.css"
+    "build": "postcss css/tailwind.css -o public/build/tailwind.css",
+    "test": "jest --watch --verbose false"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,8 @@
     "autoprefixer": "^9.7.4",
     "postcss-cli": "^7.1.0",
     "tailwindcss": "^1.1.4"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0"
   }
 }
