@@ -1,9 +1,14 @@
 context('Testing UI and UX of the homepage', () => {
-    beforeEach(() => {
+    before(() => {
         cy.visit('http://127.0.0.1:8080/')
     })
 
-    it('click the button', () => {
-        cy.get('[data-cy=begin_button]').click()
+    it('button is clickable', () => {
+        cy.get('[data-cy=begin_button]').click();
     })
+
+    it('word appears after button click', () => {
+        cy.get('[data-cy=initial_word]').contains('yes');
+    })
+
 });
