@@ -1,6 +1,7 @@
 var synth = window.speechSynthesis;
 var voiceSelect = document.querySelector('select');
 var voices = [];
+
 function populateVoiceList() {
     voices = synth.getVoices().sort(function (a, b) {
         var aname = a.name.toUpperCase(), bname = b.name.toUpperCase();
@@ -15,20 +16,20 @@ function populateVoiceList() {
     voiceSelect.innerHTML = '';
     for (i = 0; i < voices.length; i++) {
         var option = document.createElement('option');
-        option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
-        if (voices[i]["default"]) {
-            option.textContent += ' -- DEFAULT';
-        }
+        option.textContent = voices[i].lang;
         option.setAttribute('data-lang', voices[i].lang);
         option.setAttribute('data-name', voices[i].name);
         voiceSelect.appendChild(option);
     }
     voiceSelect.selectedIndex = selectedIndex;
 }
+
 populateVoiceList();
+
 if (speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = populateVoiceList;
 }
+
 function speak(word, recognition) {
     var utterThis = new SpeechSynthesisUtterance(word);
     utterThis.onend = function (event) {
