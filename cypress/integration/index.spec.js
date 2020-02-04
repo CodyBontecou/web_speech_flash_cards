@@ -11,4 +11,9 @@ context('Testing UI and UX of the homepage', () => {
         cy.get('[data-cy=initial_word]').contains('yes');
     })
 
+    it('an additional click does not change the word', () => {
+        cy.get('[data-cy=begin_button]').click();
+        cy.get('[data-cy=initial_word]').contains('yes');
+    })
+
 });
