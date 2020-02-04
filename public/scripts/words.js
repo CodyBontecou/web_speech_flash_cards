@@ -32,12 +32,12 @@ function beginSpeechRecognition() {
     let recognition = new SpeechRecognition();
     recognition.lang = 'es-MX';
 
-    const diagnostic = document.querySelector('.answer');
+    const diagnostic = document.getElementById('answer');
 
     handleIteration();
 
     const answer = words[iteration].english;
-    const initial_word = document.querySelector('.initial_word');
+    const initial_word = document.getElementById('initial_word');
     initial_word.innerHTML = answer;
     speak(answer, recognition);
 
