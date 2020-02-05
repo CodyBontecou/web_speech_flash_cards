@@ -16,7 +16,7 @@ export default {
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [{ src: '/speak.js' }]
+    script: [{ src: '/speak.js', type: 'application/javascript;charset=utf-8' }]
   },
 
   loading: { color: '#fff' },
