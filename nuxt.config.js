@@ -16,7 +16,7 @@ export default {
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [{src: ''}]
+    script: [{ src: '/speak.js' }]
   },
 
   loading: { color: '#fff' },
@@ -28,14 +28,11 @@ export default {
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
+    '@nuxtjs/tailwindcss',
     '@nuxt/typescript-build'
   ],
 
-  modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    '@nuxtjs/dotenv'
-  ],
+  modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxtjs/dotenv'],
 
   axios: {},
 
