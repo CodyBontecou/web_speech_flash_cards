@@ -1,75 +1,58 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>
-            Vuetify is a progressive Material Design component framework for
-            Vue.js. It was designed to empower developers to create amazing
-            applications.
-          </p>
-          <p>
-            For more information on Vuetify, check out the
-            <a href="https://vuetifyjs.com" target="_blank"> documentation </a>.
-          </p>
-          <p>
-            If you have questions, please join the official
-            <a href="https://chat.vuetifyjs.com/" target="_blank" title="chat">
-              discord </a
-            >.
-          </p>
-          <p>
-            Find a bug? Report it on the github
-            <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              title="contribute"
-            >
-              issue board </a
-            >.
-          </p>
-          <p>
-            Thank you for developing with Vuetify and I look forward to bringing
-            more exciting features in the future.
-          </p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
+  <v-container class="fill-height" fluid>
+    <v-row>
+      <v-col>
+        <h1
+          id="title"
+          class="mx-auto pt-6 mb-3 text-center text-4xl text-white"
+        >
+          Anki Voice Cards
+        </h1>
+        <h2 class="p-2 text-center text-xl text-gray-400">
+          Say the following word in Spanish
+        </h2>
+
+        <div class="flex pt-20 m-10 text-center justify-around">
+          <div class="w-1/3 p-5 bg-indigo-500 rounded-lg shadow-lg">
+            <p
+              id="initial_word"
+              data-cy="initial_word"
+              class="text-white uppercase tracking-wider font-semibold"
+            ></p>
           </div>
-          <hr class="my-3" />
-          <a href="https://nuxtjs.org/" target="_blank">
-            Nuxt Documentation
-          </a>
-          <br />
-          <a href="https://github.com/nuxt/nuxt.js" target="_blank">
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire">
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+          <div class="w-1/3 p-5 bg-indigo-500 rounded-lg shadow-lg">
+            <p
+              id="answer"
+              data-cy="answer"
+              class="text-white uppercase tracking-wider font-semibold"
+            ></p>
+            <p
+              id="interim"
+              data-cy="interim"
+              class="text-white opacity-50 uppercase tracking-wider font-semibold"
+            ></p>
+          </div>
+        </div>
+
+        <div class="flex justify-around">
+          <div class="absolute m-5 lg:my-16 lg:mx-8 left-0 bottom-0">
+            <select
+              class="p-3 lg:p-10 text-center text-sm rounded-lg shadow-lg bg-indigo-500 text-white uppercase tracking-wider font-semibold cursor-pointer"
+            >
+            </select>
+          </div>
+
+          <div class="absolute m-5 lg:my-16 lg:mx-8 right-0 bottom-0">
+            <a
+              id="begin"
+              data-cy="begin_button"
+              class="p-3 lg:p-10 text-sm rounded-lg shadow-lg bg-indigo-500 text-white uppercase tracking-wider font-semibold cursor-pointer"
+            >
+              start
+            </a>
+          </div>
+        </div>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
-
-<script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
-export default {
-  components: {
-    Logo,
-    VuetifyLogo
-  }
-}
-</script>
